@@ -14,19 +14,23 @@ struct ProfileSummary: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
-                Text(profile.username)
-                    .bold()
-                    .font(.title)
-                
-                Text("Notifications: \(profile.prefersNotifications ? "On": "Off" )")
-                Text("Seasonal Photos: \(profile.seasonalPhoto.rawValue)")
-                Text("Goal Date: ") + Text(profile.goalDate, style: .date)
+                Group {
+                    Text(profile.username)
+                        .bold()
+                        .font(.title)
+                    
+                    Text("Notifications: \(profile.prefersNotifications ? "On": "Off" )")
+                    Text("Seasonal Photos: \(profile.seasonalPhoto.rawValue)")
+                    Text("Goal Date: ") + Text(profile.goalDate, style: .date)
+                }
+                .padding(.horizontal)
                 
                 Divider()
                 
                 VStack(alignment: .leading) {
                     Text("Completed Badges")
                         .font(.headline)
+                        .padding(.horizontal)
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
@@ -55,6 +59,7 @@ struct ProfileSummary: View {
                     
                     HikeView(hike: modelData.hikes[0])
                 }
+                .padding(.horizontal)
             }
         }
     }
