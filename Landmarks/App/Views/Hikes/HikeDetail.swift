@@ -30,9 +30,10 @@ struct HikeDetail: View {
                         Text(value.0)
                             .font(.system(size: 15))
                             .foregroundStyle(value.1 == dataToShow
-                                ? .gray
-                                : .accentColor)
-                            .animation(nil)
+                                ? .blue
+                                : .gray)
+                            .scaleEffect(value.1 == dataToShow ? 1.2 : 1)
+                            .animation(.bouncy(duration: 0.5, extraBounce: 0.2), value: dataToShow)
                     }
                 }
             }
