@@ -38,7 +38,6 @@ struct LandmarkDetail: View {
                     .bold()
                     .lineLimit(0)
                 
-                
                 Text(landmark.state)
                     .font(.caption)
                 
@@ -55,6 +54,6 @@ struct LandmarkDetail: View {
 
 #Preview {
     let modelData = ModelData()
-    return LandmarkDetail(landmark: modelData.landmarks[0])
+    return LandmarkDetail(landmark: modelData.landmarks[6])
         .environment(modelData)
 }
